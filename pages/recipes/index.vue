@@ -1,17 +1,14 @@
 <template>
   <section class="recipes">
     <Recipe
-    thumbnail="https://images.theconversation.com/files/180401/original/file-20170731-22175-67v3q2.jpg?ixlib=rb-1.1.0&rect=0%2C589%2C5472%2C2654&q=45&auto=format&w=1356&h=668&fit=crop"
-    title="Tasty Hamburger"
-    id="1"
-    previewText="One of the easiest and tastiest hamburgers around"
+    v-for="recipe in recipes"
+    :key="recipe.id"
+    :thumbnail=recipe.thumbnail
+    :title=recipe.title
+    :id=recipe.id
+    :previewText=recipe.previewText
     />
-    <Recipe
-    thumbnail="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUaAVeXXVawHZryxJ0gIY_4yNv2hTbuZhGZRYQOEQuCCICvsZo"
-    title="Tasty Pizaa"
-    id="2"
-    previewText="One of the easiest and tastiest pizza around"
-    />
+
   </section>
 </template>
 
@@ -26,12 +23,12 @@ export default {
     return new Promise((resolve, reject) => {
       setTimeout(()=> {
         resolve({
-          recipe:[
+          recipes:[
             {
               id: "1",
-              title: "Tasty Pizaa",
+              title: "Tasty Pizza",
               previewText: "One of the easiest and tastiest pizza around",
-              thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUaAVeXXVawHZryxJ0gIY_4yNv2hTbuZhGZRYQOEQuCCICvsZo"
+              thumbnail: "http://static.t13.cl/images/sizes/1200x675/1487787154-pizza.jpg"
             },
             {
               id: "2",
@@ -41,7 +38,7 @@ export default {
             }
           ]
         })
-      }, 15000)
+      }, 1500)
     })
   },
 }
