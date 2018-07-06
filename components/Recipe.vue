@@ -16,6 +16,10 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+  color: black;
+}
 .recipes {
   display: flex;
   flex-flow: row wrap;

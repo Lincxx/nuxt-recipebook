@@ -21,7 +21,29 @@ import Recipe from '@/components/Recipe'
 export default {
   components: {
     Recipe
-  }
+  },
+  asyncData(){
+    return new Promise((resolve, reject) => {
+      setTimeout(()=> {
+        resolve({
+          recipe:[
+            {
+              id: "1",
+              title: "Tasty Pizaa",
+              previewText: "One of the easiest and tastiest pizza around",
+              thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUaAVeXXVawHZryxJ0gIY_4yNv2hTbuZhGZRYQOEQuCCICvsZo"
+            },
+            {
+              id: "2",
+              title: "Tasty Hamburger",
+              previewText: "One of the easiest and tastiest hamburgers around",
+              thumbnail: "https://images.theconversation.com/files/180401/original/file-20170731-22175-67v3q2.jpg?ixlib=rb-1.1.0&rect=0%2C589%2C5472%2C2654&q=45&auto=format&w=1356&h=668&fit=crop"
+            }
+          ]
+        })
+      }, 15000)
+    })
+  },
 }
 </script>
 
